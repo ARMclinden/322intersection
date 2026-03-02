@@ -13,16 +13,13 @@
 # I am fully aware of the consequences of academic dishonesty and agree to abide by the
 # university's academic integrity policy. I understand the importance the consequences of plagiarism.
 
-class Point():
-    x = 0
-    y = 0
 
-    def __init__(self, n, m):
-        self.x = n
-        self.y = m
+def find_orientation(x1 : tuple, x2 : tuple, x3: tuple):
 
-def find_orientation(x1 : Point, x2 : Point, x3 : Point):
-    fin = ((x2.y-x1.y) * (x3.x-x2.x) - (x3.y - x2.y) * (x2.x - x1.x)) 
+    if x1 == () or x2 == () or x3 == ():
+        return -1
+
+    fin = ((x2[1]-x1[1]) * (x3[0]-x2[0]) - (x3[1] - x2[1]) * (x2[0] - x1[0])) 
 
     if fin == 0:
         return 0

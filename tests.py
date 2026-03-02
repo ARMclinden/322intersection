@@ -1,17 +1,30 @@
 import unittest
-from main import add_positive_integers
+from main import find_orientation
 
-class TestMathFunctions(unittest.TestCase):
-    def test_sum_correct(self):
-        self.assertEqual(add_positive_integers(5, 10), 15)
+class TestOrientation(unittest.TestCase):
+    def test_clockwise(self):
+        self.assertEqual(find_orientation((0,0), (1,1), (2, 1)), 1)
 
-    def test_negative_input(self):
-        with self.assertRaises(ValueError):
-            add_positive_integers(-1, 5)
+    def test_counter_clockwise(self):
+        self.assertEqual(find_orientation((0,0), (1,1), (1, 2)), 2)
 
-    def test_wrong_type(self):
-        with self.assertRaises(ValueError):
-            add_positive_integers("5", 5)
+    def test_collinear(self):
+        self.assertEqual(find_orientation((0, 0), (1, 1), (2, 2)), 0)
+
+    def test_weird(self):
+        self.assertEqual(find_orientation((1, 1), (0,0), (2, 1)), 2)
+    
+    def test_wierd_collinear(self):
+        self.assertEqual(find_orientation((1, 1), (0, 0), (2, 2)), 0)
+    
+    def test_missing_input(self):
+        self.assertEqual(find_orientation((), (1, 1), (2, 2)), -1)
+    
+    def test_missing_input2(self):
+        self.assertEqual(find_orientation((0, 0), (), (2, 2)), -1)
+    
+    def test_missing_input3(self):
+        self.assertEqual(find_orientation((0, 0), (1, 1), ()), -1)
 
 if __name__ == "__main__":
     unittest.main()
