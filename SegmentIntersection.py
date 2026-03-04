@@ -14,12 +14,12 @@
 # university's academic integrity policy. I understand the importance the consequences of plagiarism.
 
 
-def find_orientation(x1 : tuple, x2 : tuple, x3: tuple):
+def find_orientation(p : tuple, q : tuple, r: tuple):
 
-    if x1 == () or x2 == () or x3 == ():
+    if p == () or q == () or r == ():
         return -1
 
-    fin = ((x2[1]-x1[1]) * (x3[0]-x2[0]) - (x3[1] - x2[1]) * (x2[0] - x1[0])) 
+    fin = ((q[1]-p[1]) * (r[0]-q[0]) - (r[1] - q[1]) * (q[0] - p[0])) 
 
     if fin == 0:
         return 0
@@ -28,7 +28,10 @@ def find_orientation(x1 : tuple, x2 : tuple, x3: tuple):
     else:
         return 2
     
-def check_intersect(l1, l2):
+def on_segment(p, q, r):
+    1;
+
+def do_intersect(l1, l2):
     if l1 == () or l2 == ():
         return -1
     
@@ -48,13 +51,5 @@ def check_intersect(l1, l2):
         intersect = 0
     
     if orient1 == 0 and orient2 == 0 and orient3 == 0 and orient4 == 0:
-        if check_intersect((l1[0], 0, l1[2], 0), (l2[0], 0, l2[2], 0)) == 1 and check_intersect((0, l1[1], 0, l1[3]), (0, l2[1], 0, l2[3])) == 1:
-            if intersect == 1:
-                intersect = 0
-            else:
-                intersect = 1
-
+        1;
     return intersect
-
-if __name__ == "__main__":
-    check_intersect((0,0,1,1), (1,1,2,2))

@@ -1,5 +1,5 @@
 import unittest
-from main import find_orientation
+from SegmentIntersection import find_orientation
 
 class TestOrientation(unittest.TestCase):
     def test_clockwise(self):
